@@ -1,0 +1,80 @@
+00001 // Standard iostream objects -*- C++ -*-
+00002 
+00003 // Copyright (C) 1997, 1998, 1999, 2001, 2002, 2005, 2008, 2009, 2010
+00004 // Free Software Foundation, Inc.
+00005 //
+00006 // This file is part of the GNU ISO C++ Library.  This library is free
+00007 // software; you can redistribute it and/or modify it under the
+00008 // terms of the GNU General Public License as published by the
+00009 // Free Software Foundation; either version 3, or (at your option)
+00010 // any later version.
+00011 
+00012 // This library is distributed in the hope that it will be useful,
+00013 // but WITHOUT ANY WARRANTY; without even the implied warranty of
+00014 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+00015 // GNU General Public License for more details.
+00016 
+00017 // Under Section 7 of GPL version 3, you are granted additional
+00018 // permissions described in the GCC Runtime Library Exception, version
+00019 // 3.1, as published by the Free Software Foundation.
+00020 
+00021 // You should have received a copy of the GNU General Public License and
+00022 // a copy of the GCC Runtime Library Exception along with this program;
+00023 // see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
+00024 // <http://www.gnu.org/licenses/>.
+00025 
+00026 /** @file include/iostream
+00027  *  This is a Standard C++ Library header.
+00028  */
+00029 
+00030 //
+00031 // ISO C++ 14882: 27.3  Standard iostream objects
+00032 //
+00033 
+00034 #ifndef _GLIBCXX_IOSTREAM
+00035 #define _GLIBCXX_IOSTREAM 1
+00036 
+00037 #pragma GCC system_header
+00038 
+00039 #include <bits/c++config.h>
+00040 #include <ostream>
+00041 #include <istream>
+00042 
+00043 namespace std _GLIBCXX_VISIBILITY(default)
+00044 {
+00045 _GLIBCXX_BEGIN_NAMESPACE_VERSION
+00046 
+00047   /**
+00048    *  @name Standard Stream Objects
+00049    *
+00050    *  The &lt;iostream&gt; header declares the eight <em>standard stream
+00051    *  objects</em>.  For other declarations, see
+00052    *  http://gcc.gnu.org/onlinedocs/libstdc++/manual/bk01pt11ch24.html
+00053    *  and the @link iosfwd I/O forward declarations @endlink
+00054    *
+00055    *  They are required by default to cooperate with the global C
+00056    *  library's @c FILE streams, and to be available during program
+00057    *  startup and termination. For more information, see the HOWTO
+00058    *  linked to above.
+00059   */
+00060   //@{
+00061   extern istream cin;       /// Linked to standard input
+00062   extern ostream cout;      /// Linked to standard output
+00063   extern ostream cerr;      /// Linked to standard error (unbuffered)
+00064   extern ostream clog;      /// Linked to standard error (buffered)
+00065 
+00066 #ifdef _GLIBCXX_USE_WCHAR_T
+00067   extern wistream wcin;     /// Linked to standard input
+00068   extern wostream wcout;    /// Linked to standard output
+00069   extern wostream wcerr;    /// Linked to standard error (unbuffered)
+00070   extern wostream wclog;    /// Linked to standard error (buffered)
+00071 #endif
+00072   //@}
+00073 
+00074   // For construction of filebuffers for cout, cin, cerr, clog et. al.
+00075   static ios_base::Init __ioinit;
+00076 
+00077 _GLIBCXX_END_NAMESPACE_VERSION
+00078 } // namespace
+00079 
+00080 #endif /* _GLIBCXX_IOSTREAM */
