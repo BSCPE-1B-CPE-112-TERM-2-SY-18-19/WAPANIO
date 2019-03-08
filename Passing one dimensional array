@@ -1,0 +1,65 @@
+#include <iostream>
+using namespace std;
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+class wasteful{  			  /*Nag declare ko ug class nga wasteful para gamiton sa main*/
+	public: 
+		void display(int m[5]);
+		long digit[100],n, x, t, j, factor[100], rem[100], num[10],num1[10];  	//gideclare ang mga variables para magamit sa code sa ubos para makuha ang output nga wasteful number
+};
+int main() 
+{
+	int num[10]={41,42,43,44,45,46,47,48,49,50};    /*Array na naay number na mag base kung asay wasteful numbers*/
+	wasteful numbers;					/* Mao na sya ang gitawag na */
+	numbers.display (num);					/* Pangan sa akong object */
+	return 0;
+}
+
+	void wasteful::display(int num[10]) 		/*Mga gitawag naho nga numbers*/
+{
+	cout<<"Displaying WASTEFUL: "<<endl;	
+	
+	for (int i=0; i<10; i++)			/*sugod sa code para sa output or sugod sa looping para sa output nga wasteful number */
+	{
+		
+	    for (i=0;i<10; i++)
+			{
+			digit[i]=0;
+			n=num[i];
+			x=n;
+			for (;n!=0;)
+				{
+				n=n/10;
+				digit[i]++;
+				}
+			t=0;
+			j=2;
+			factor[i]=0;
+			for (;x!=0;)
+				{
+				if (x%j==0)
+					{
+					x=x/j;
+					rem[t]=j;
+					t++;
+					factor[i]++;
+					if(x==1)
+						{
+						break;
+						}
+					}
+			else
+				{
+				j++;
+				}
+			}
+		}
+		for (i=0; i<10; i++)
+			{
+			if (factor[i]>digit[i])
+				{
+				cout<<"Number: "<<num[i]<<endl;
+				}
+			}
+		}
+}
